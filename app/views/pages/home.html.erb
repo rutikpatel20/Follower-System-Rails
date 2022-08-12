@@ -1,7 +1,18 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 <% if current_user %>
-  <%= current_user.email %>
+  Current User : <%= current_user.email %> <hr>
+  <p> People I'm Following :  </p>
+  <%= current_user.followees.each do |u| %>
+    Following Email : <%= u.email %>
+    <br>
+  <% end %>
+  <hr>
+  <p> People Following ME :  </p>
+  <%= current_user.followers.each do |u| %>
+    Followers Email : <%= u.email %>
+    <br>
+  <% end %>
   <%= link_to "Edit Account", edit_user_registration_path %>
   <%= button_to "Logout", destroy_user_session_path, method: :delete %>
 <% else %>
