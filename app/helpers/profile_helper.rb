@@ -5,7 +5,7 @@ module ProfileHelper
     current_user&.followees&.include?(user)
   end
 
-  def fom_id_for_follower(follower)
+  def dom_id_for_follower(follower)
     dom_id(follower)
   end
 end
